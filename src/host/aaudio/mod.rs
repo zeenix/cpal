@@ -619,7 +619,8 @@ impl DeviceTrait for Device {
         let builder = ndk::audio::AudioStreamBuilder::new()?
             .direction(ndk::audio::AudioDirection::Input)
             .channel_count(channel_count)
-            .format(format);
+            .format(format)
+            .input_preset(ndk::audio::AudioInputPreset::VoiceRecognition);
 
         build_input_stream(
             self,
